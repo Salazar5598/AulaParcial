@@ -143,7 +143,7 @@ class CreateMateria(graphene.Mutation):
     @staticmethod
     def mutate(root, info, input=None):
         ok = True
-        materia_instance = Alumno(Codigo=input.Codigo,Nombre=input.Nombre,Apellido=input.Apellido,Email=input.Email,Grado=input.Grado,Seccion=input.Seccion,Genero=input.Genero,nacimiento=input.nacimiento,direccion=input.direccion,telefono=input.telefono)
+        materia_instance = Materia(Nombre_Materia =input.Nombre_Materia )
         materia_instance.save()
         return CreateMateria(ok=ok, materia=materia_instance)
 
@@ -158,7 +158,7 @@ class UpdateMateria(graphene.Mutation):
     @staticmethod
     def mutate(root, info, id, input=None):
         ok = False
-        materia_instance = Alumno.objects.get(pk=id)
+        materia_instance = Materia.objects.get(pk=id)
         if materia_instance:
             ok = True
             materia_instance.Nombre_Materia = input.Nombre_Materia
