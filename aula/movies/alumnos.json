@@ -1,0 +1,57 @@
+[
+    {
+      "model": "movies.alumno",
+      "pk": 1,
+      "fields": {
+        "Codigo": "AB2017",
+        "Nombre": "Michael B",
+        "Apellido": "Jordan",
+        "Email": "Michael@correo.com",
+        "Grado": "2do",
+        "Seccion": "A",
+        "Genero": "Masculino",
+        "nacimiento": "12/12/2004",
+        "direccion": "Quetaltenango"
+
+      }
+    },
+    {
+      "model": "movies.alumno",
+      "pk": 2,
+      "fields": {
+        "Codigo": "AB2013",
+        "Nombre": "Marina",
+        "Apellido": "Ojeda",
+        "Email": "Marina@correo.com",
+        "Grado": "2do",
+        "Seccion": "B",
+        "Genero": "Femenino",
+        "nacimiento": "12/06/2004",
+        "direccion": "Quetaltenango"
+
+      }
+    },
+    {
+      "model": "movies.materia",
+      "pk": 1,
+      "fields": {
+        "Nombre_Materia": "Ciencias Naturales"
+      }  
+    },
+    {
+      "model": "movies.materia",
+      "pk": 2,
+      "fields": {
+        "Nombre_Materia": "Ciencias Sociales"
+      }  
+    },
+    {
+      "model": "movies.asignacion_materia",
+      "pk": 1,
+      "fields": {
+        "Nota_Final": "80",
+        "Alumno": 1,
+        "Materia": 1
+      }
+    }
+  ]
