@@ -25,7 +25,7 @@ SECRET_KEY = ')q222f-xz$(_6&qo$jmppmz&clcjj$p(4k1b#7jyt_j(u#x1^0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1',]
+ALLOWED_HOSTS = ['127.0.0.1','localhost']
 
 
 # Application definition
@@ -33,22 +33,19 @@ ALLOWED_HOSTS = ['127.0.0.1',]
 INSTALLED_APPS = [
     'corsheaders',
     'graphene_django',
+    'aula.movies',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'aula.movies',
+    
     
 ]
 
-
-GRAPHENE = {
-    'SCHEMA': 'aula.schema.schema'
-}
-
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -56,7 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'aula.urls'
@@ -129,6 +126,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static') 
+
+GRAPHENE = {
+    'SCHEMA': 'aula.schema.schema'
+}
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:4200',

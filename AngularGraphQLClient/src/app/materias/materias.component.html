@@ -1,0 +1,25 @@
+<h1>Materias</h1>
+
+<button
+  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+  (click)="update()"
+>
+  Update
+</button>
+<table
+  class="mdl-data-table mdl-js-data-table mdl-shadow--2dp"
+  *ngIf="materias"
+>
+  <tr>
+    <th class="mdl-data-table__cell--non-numeric">Nombre Materia</th>
+    <th class="mdl-data-table__cell--non-numeric">Fecha Creacion</th>
+  </tr>
+  <tr *ngFor="let materia of materias">
+    <td class="mdl-data-table__cell--non-numeric">
+      {{materia.NombreMateria}}
+    </td>
+    <td class="mdl-data-table__cell--non-numeric">
+      {{materia.FechaIngreso}}
+    </td>
+  </tr>
+</table>

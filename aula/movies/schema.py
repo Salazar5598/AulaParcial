@@ -179,16 +179,16 @@ class CreateAsignacion(graphene.Mutation):
     @staticmethod
     def mutate(root, info, input=None):
         ok = True
+        asignacion_instance = Asignacion_Materia(Nota_Final=input.Nota_Final)
         alumnos = []
         materias = []
-        for alumno_input in input.alumnos:
+        for alumno_input in input.Alumno:
           alumno = Alumno.objects.get(pk=alumno_input.id)
           if alumno is None:
             return CreateAsignacion(ok=False, asignacion=None)
           alumnos.append(alumno)
-        asignacion_instance.save()
         asignacion_instance.alumnos.set(alumnos)
-        for materia_input in input.materias:
+        for materia_input in input.Materia:
           materia = Materia.objects.get(pk=materia_input.id)
           if materia is None:
             return CreateAsignacion(ok=False, asignacion=None)
@@ -232,7 +232,7 @@ class UpdateAsignacion(graphene.Mutation):
                 return UpdateAsignacion(ok=False, movie=None)
               materias.append(materia)
             
-            materia_instance.Nota_Final = input.Nota_Final
+            asignacion_instance.Nota_Final = input.Nota_Final
             asignacion_instance.save()
             asignacion_instance.materias.set(materias)
             return UpdateAsignacion(ok=ok, asignacion=asignacion_instance)

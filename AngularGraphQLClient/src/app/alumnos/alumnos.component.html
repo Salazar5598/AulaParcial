@@ -1,0 +1,68 @@
+<h1>Registrar Alumnos</h1>
+<br><br>
+<form #formularioAlumno="ngForm" (ngSubmit)="newPost()">
+	<input type="text" name="Codigo" placeholder="Codigo" [(ngModel)]="alumno.Codigo">
+	<br><br>
+  <input type="text" name="Nombre" placeholder="Nombre" [(ngModel)]="alumno.Nombre">
+	<br><br>
+  <input type="text" name="Apellido" placeholder="Apellido" [(ngModel)]="alumno.Apellido">
+	<br><br>
+  <input type="text" name="Email" placeholder="Email" [(ngModel)]="alumno.Email">
+	<br><br>
+  <input type="text" name="Grado" placeholder="Grado" [(ngModel)]="alumno.Grado">
+	<br><br>
+  <input type="text" name="Seccion" placeholder="Seccion" [(ngModel)]="alumno.Seccion">
+	<br><br>
+  <input type="text" name="Genero" placeholder="Genero" [(ngModel)]="alumno.Genero">
+	<br><br>
+  <input type="text" name="nacimiento" placeholder="Nacimiento" [(ngModel)]="alumno.nacimiento">
+	<br><br>
+  <input type="text" name="direccion" placeholder="Direccion" [(ngModel)]="alumno.direccion">
+	<br><br>
+	<button type="submit">Guardar</button>
+</form>
+
+<h1>Listado de Alumnos</h1>
+<table
+  class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp"
+>
+  <tr>
+    <th class="mdl-data-table__cell--non-numeric">Codigo</th>
+    <th class="mdl-data-table__cell--non-numeric">Nombre</th>
+    <th class="mdl-data-table__cell--non-numeric">Apellido</th>
+    <th class="mdl-data-table__cell--non-numeric">Email</th>
+    <th class="mdl-data-table__cell--non-numeric">Grado</th>
+    <th class="mdl-data-table__cell--non-numeric">Seccion</th>
+    <th class="mdl-data-table__cell--non-numeric">Genero</th>
+    <th>Nacimiento</th>
+    <th class="mdl-data-table__cell--non-numeric">Direccion</th>
+  </tr>
+  <tr *ngFor="let alumno of alumnos">
+    <td></td>
+    <td class="mdl-data-table__cell--non-numeric">{{alumno.Codigo}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{alumno.Nombre}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{alumno.Apellido}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{alumno.Email}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{alumno.Grado}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{alumno.Seccion}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{alumno.Genero}}</td>
+    <td>{{alumno.nacimiento}}</td>
+    <td class="mdl-data-table__cell--non-numeric">{{alumno.direccion}}</td>
+  </tr>
+</table>
+
+<div class="paging">
+  <button
+    class="mdl-button mdl-js-button mdl-button--colored"
+    (click)="prevPage()"
+  >
+    <i class="material-icons">arrow_back</i>
+  </button>
+  Page {{page+1}}
+  <button
+    class="mdl-button mdl-js-button mdl-button--colored"
+    (click)="nextPage()"
+  >
+    <i class="material-icons">arrow_forward</i>
+  </button>
+</div>
