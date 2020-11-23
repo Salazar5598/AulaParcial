@@ -1,3 +1,11 @@
+<h1>Registrar Materias</h1>
+<br><br>
+<form #formularioMateria="ngForm" (ngSubmit)="newPost()">
+	<input type="text" name="NombreMateria" placeholder="NombreMateria" [(ngModel)]="materia.NombreMateria">
+	<br><br>
+	<button type="submit">Guardar</button>
+</form>
+
 <h1>Materias</h1>
 
 <button

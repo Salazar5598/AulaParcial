@@ -10,6 +10,18 @@ query {
     }
   }
 `;
+const CREARMATERIAS_QUERY = gql`
+mutation createMateria(
+  $NombreMateria: String,
+) {
+  createMateria(input: {
+    NombreMateria:$NombreMateria,
+  }) {
+    ok
+  }
+}
+
+`;
 
 @Component({
   selector: 'app-materias',
@@ -19,7 +31,10 @@ query {
 export class MateriasComponent implements OnInit {
   page = 1;
   materias: any[] = [];
+  materia = {
+    NombreMateria:"",
 
+  };
   private query: QueryRef<any>;
 
   constructor(private apollo: Apollo) {}
@@ -31,6 +46,17 @@ export class MateriasComponent implements OnInit {
 
     this.query.valueChanges.subscribe(result => {
       this.materias = result.data && result.data.materias;
+    });
+  }
+
+  newPost() {
+    this.apollo.mutate({
+      mutation: CREARMATERIAS_QUERY,
+      variables: {
+        NombreMateria: this.materia.NombreMateria,
+      }
+    }).subscribe(data => {
+      console.log('New post created!', data);
     });
   }
 
